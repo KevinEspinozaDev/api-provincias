@@ -4,8 +4,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -16,6 +19,9 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTableModule
 
   ],
   exports: [
@@ -25,6 +31,9 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatFormFieldModule,
     MatCardModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTableModule
 
   ]
 })

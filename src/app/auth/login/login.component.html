@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+
+  <mat-card  class="login-card">
+
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="form" [noValidate]="false">
+
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username">
+
+          <mat-error *ngIf="loginForm.controls['username'].errors?.['required']">Ingrese un username</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+
+          <mat-error *ngIf="loginForm.controls['password'].errors?.['required']">Ingrese una password</mat-error>
+        </mat-form-field>
+
+        <div *ngIf="loginError" class="containerError">
+          <p>Credenciales inválidas.</p>
+        </div>
+
+        <button mat-raised-button type="submit" color="primary">Login</button>
+
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>

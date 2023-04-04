@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+
+  <h2>Buscador de latitud y longitud de provincias argentinas</h2>
+  <p>Ingrese el nombre de una provincia para ver las coordenadas de la provincia</p>
+
+  <form [formGroup]="searchForm" fxLayout="column" (ngSubmit)="onSubmit()" fxLayoutAlign="center center" class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Buscar provincia</mat-label>
+      <input matInput formControlName="nombre" type="text" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="btn-submit" type="submit">Submit</button>
+
+  </form>
+
+  <div fxLayout="column" fxLayoutAlign="center center" class="info-container">
+    <app-table></app-table>
+  </div>
+
+</div>

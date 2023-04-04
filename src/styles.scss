@@ -1,20 +1,21 @@
 @import '@angular/material/theming';
 
-@include mat-core();
+// taken from https://github.com/angular/components/blob/master/src/material/core/theming/prebuilt/purple-green.scss
 
-// Use the indigo-pink palette from Material
-$custom-primary: mat-palette($mat-indigo);
-$custom-accent: mat-palette($mat-pink, A200, A100, A400);
-$custom-warn: mat-palette($mat-red);
+// Define a theme.
+$my-custom-primary: mat-palette($mat-purple, 700, 500, 800);
+$my-custom-accent:  mat-palette($mat-green, A200, A100, A400);
 
-$custom-theme: mat-light-theme(
-  $custom-primary,
-  $custom-accent,
-  $custom-warn
-);
+$my-custom-theme: mat-dark-theme((
+  color: (
+    primary: $my-custom-primary,
+    accent: $my-custom-accent
+  )
+));
 
-// Apply the custom theme to the app
-@include angular-material-theme($custom-theme);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Custom styles
+body{
+  padding: 0px;
+  margin: 0px;
+}
