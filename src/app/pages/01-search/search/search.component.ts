@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -15,6 +15,8 @@ export class SearchComponent implements OnInit {
     nombre: ['', [Validators.required]]
   });
 
+  nombreSubmitted:string= '';
+
   constructor(
     private formBuilder: FormBuilder,
   ){
@@ -26,7 +28,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(): void{
-    console.log(this.searchForm.value);
+    this.nombreSubmitted = this.searchForm.value.nombre;
   }
 
 }

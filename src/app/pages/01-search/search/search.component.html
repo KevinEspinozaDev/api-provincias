@@ -1,20 +1,24 @@
 <div fxLayout="column" fxLayoutAlign="center center">
 
-  <h2>Buscador de latitud y longitud de provincias argentinas</h2>
-  <p>Ingrese el nombre de una provincia para ver las coordenadas de la provincia</p>
+  <h1>Buscador de latitud y longitud de provincias argentinas</h1>
+  <p>Ingrese el nombre de una provincia para ver sus coordenadas</p>
 
-  <form [formGroup]="searchForm" fxLayout="column" (ngSubmit)="onSubmit()" fxLayoutAlign="center center" class="form">
+  <form
+    [formGroup]="searchForm"
+    fxLayout="column" fxLayoutAlign="center center"
+    (ngSubmit)="onSubmit()" class="form">
+
     <mat-form-field appearance="fill">
-      <mat-label>Buscar provincia</mat-label>
-      <input matInput formControlName="nombre" type="text" />
+      <mat-label>Nombre de provincia</mat-label>
+      <input matInput formControlName="nombre" name="nombre" type="text" />
     </mat-form-field>
 
-    <button mat-raised-button color="primary" class="btn-submit" type="submit">Submit</button>
+    <button mat-raised-button color="primary" class="btn-submit" type="submit">Buscar</button>
 
   </form>
 
-  <div fxLayout="column" fxLayoutAlign="center center" class="info-container">
-    <app-table></app-table>
+  <div class="info-container">
+    <app-table [nombreSearched]="nombreSubmitted"></app-table>
   </div>
 
 </div>

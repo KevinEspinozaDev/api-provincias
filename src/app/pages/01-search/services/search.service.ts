@@ -13,8 +13,8 @@ export class SearchService {
     private httpClient: HttpClient,
   ) { }
 
-  getData(data:string): Observable<any>{
-    const url = environment.SEARCH_URL;
+  getData(nombreProvincia:string): Observable<any>{
+    const url = `${environment.SEARCH_URL}?nombre=${nombreProvincia}`;
 
     return this.httpClient
     .get(url,

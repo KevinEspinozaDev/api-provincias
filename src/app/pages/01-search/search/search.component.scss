@@ -1,17 +1,26 @@
 .form{
 
-  width: 50% !important;
+  width: 100%;
   margin-top: 16px;
   margin-bottom: 32px;
 
   mat-form-field{
-    width: 100% !important;
+    width: 100%;
   }
   .btn-submit{
-    width: 100% !important;
+    width: 100%;
   }
+}
+
+.info-container{
+  width: 100%;
+}
 
 
+@media (min-width: 700px)  {
+  .form{
+    width: 50%;
+  }
   .info-container{
     width: 50%;
   }

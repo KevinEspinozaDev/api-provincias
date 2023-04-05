@@ -1,23 +1,48 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+  <table
+    *ngIf="nombreSearched !== '' && provincias.length > 0; else noData"
+    mat-table [dataSource]="provincias" class="mat-elevation-z8">
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef> Nombre </th>
-    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lat">
+      <th mat-header-cell *matHeaderCellDef> Latitud </th>
+      <td mat-cell *matCellDef="let element"> {{element.centroide.lat}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lon">
+      <th mat-header-cell *matHeaderCellDef> Longitud </th>
+      <td mat-cell *matCellDef="let element"> {{element.centroide.lon}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <ng-container class="no-data-container"
+  *ngIf="loading">
+  <mat-spinner
+  mode="indeterminate">
+    </mat-spinner>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="lat">
-    <th mat-header-cell *matHeaderCellDef> Latitud </th>
-    <td mat-cell *matCellDef="let element"> {{element.lat}} </td>
-  </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="lon">
-    <th mat-header-cell *matHeaderCellDef> Longitud </th>
-    <td mat-cell *matCellDef="let element"> {{element.lon}} </td>
-  </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  <ng-template #noData class="no-data-container">
+    <p *ngIf="nombreSearched !== '' && provincias.length < 1; else defaultNoData" class="error">
+      No se encontraron datos. Vuelva ingresar un valor diferente en el nombre.
+    </p>
+
+    <ng-template #defaultNoData>
+      <p>
+        Aquí verá la información de latitud y longitud de las provincias que coincidan con su búsqueda.
+      </p>
+    </ng-template>
+
+  </ng-template>
+
+</div>
+
