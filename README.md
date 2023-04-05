@@ -4,7 +4,7 @@
 Se realizó una app web en Angular que consulta a una API pública con información
 de las coordenadas del centroide de cada provincia de Argentina.
 
-Username: usern4me
+Username: usern4me -
 Password: p4ssword
 
 - Se utilizó la biblioteca Angular Material y directivas fxLayout.
