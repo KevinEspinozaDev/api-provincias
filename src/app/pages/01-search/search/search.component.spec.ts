@@ -25,11 +25,11 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debería verificar que el componente se creó correctamente', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should update nombreSubmitted with value "buenos" on form submit', () => {
+  it('Debería actualizar "nombreSubmitted" con el valor "buenos" al enviar el formulario.', () => {
     // Simulamos el ingreso de texto en el campo de nombre
     const nombreInput = fixture.nativeElement.querySelector('input[name="nombre"]');
     nombreInput.value = 'buenos';
@@ -43,7 +43,7 @@ describe('SearchComponent', () => {
     expect(component.nombreSubmitted).toEqual('buenos');
   });
 
-  it('should update nombreSubmitted with value "rio" on form submit', () => {
+  it('Debería actualizar nombreSubmitted con el valor "rio" al enviar el formulario.', () => {
     // Simulamos el ingreso de texto en el campo de nombre
     const nombreInput = fixture.nativeElement.querySelector('input[name="nombre"]');
     nombreInput.value = 'rio';
@@ -57,7 +57,7 @@ describe('SearchComponent', () => {
     expect(component.nombreSubmitted).toEqual('rio');
   });
 
-  it('should not update nombreSubmitted on form submit when nombre is shorter than 3 characters', () => {
+  it('Debería actualizar nombreSubmitted con el valor "n" al enviar el formulario', () => {
     // Simulamos el ingreso de texto en el campo de nombre
     const nombreInput = fixture.nativeElement.querySelector('input[name="nombre"]');
     nombreInput.value = 'n';
@@ -67,5 +67,7 @@ describe('SearchComponent', () => {
     const form = fixture.nativeElement.querySelector('form');
     form.dispatchEvent(new Event('submit'));
 
+    // Verificamos que el valor de nombreSubmitted sea 'n'
+    expect(component.nombreSubmitted).toEqual('n');
   });
 });

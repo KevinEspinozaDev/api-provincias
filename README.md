@@ -10,6 +10,7 @@ Password: p4ssword
 - Se utilizó la biblioteca Angular Material y directivas fxLayout.
 - Manejo de sesión, Guards y localStorage para guardar un token.
 - Test unitario en search.component.spec.ts
+- Se considera que en la búsqueda se pueda ingresar una letra, pero no texto vacío.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 

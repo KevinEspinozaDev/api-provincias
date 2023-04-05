@@ -32,17 +32,18 @@
 
 
   <ng-template #noData class="no-data-container">
-    <p *ngIf="nombreSearched !== '' && provincias.length < 1; else defaultNoData" class="error">
+    <p *ngIf="nombreSearched !== '' && provincias.length < 1 && !loading" class="error">
       No se encontraron datos. Vuelva ingresar un valor diferente en el nombre.
     </p>
 
-    <ng-template #defaultNoData>
+    <div *ngIf="nombreSearched === '' && provincias.length < 1 && !loading">
       <p>
         Aquí verá la información de latitud y longitud de las provincias que coincidan con su búsqueda.
       </p>
-    </ng-template>
+    </div>
 
   </ng-template>
 
 </div>
+{{nombreSearched}} {{provincias.length}} {{loading}}
 

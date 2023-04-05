@@ -44,10 +44,12 @@ export class TableComponent implements OnInit {
   getDataProvincias(nombreSearched:string): void{
 
     this.loading = true;
+    this.provincias = [];
 
     this.searchService.getData(nombreSearched)
       .subscribe({
         next: (res) => {
+
           this.provincias = res.provincias;
           this.loading = false;
         },
